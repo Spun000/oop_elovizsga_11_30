@@ -36,7 +36,6 @@ def init_data():
 
 if __name__ == '__main__':
     booking = init_data()
-    #print(booking.foglalasok)
 
     while True:
         action = input("Actions: Booking, Delete, List, Esc): ")
@@ -59,12 +58,12 @@ if __name__ == '__main__':
             else:
                 print(f"Booking deleted for room: {room_nr}")
         elif action.lower() == "list":
-            bookings = booking.get_booked_rooms()
-            for room, dates in bookings:
+            bookings = booking.get_bookings()
+            for room, dates in bookings.items():
                 print(room)
                 for date in dates:
                     print(date)
-        elif action.lower()  == "esc":
+        elif action.lower() == "esc":
             break
         else:
             print("Invalid action")
