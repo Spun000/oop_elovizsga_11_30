@@ -10,12 +10,12 @@ class Szoba(ABC):
 
 # Hozz létre az Szoba osztályból EgyagyasSzoba és KetagyasSzoba származtatott osztályokat, amelyek különböző attributumai vannak, és az áruk is különböző.
 class EgyagyasSzoba(Szoba):
-    def __init__(self, ar, szobaszam, erkely):
+    def __init__(self, ar, szobaszam, dohanyzo):
         super().__init__(ar, szobaszam)
-        self.erkely = erkely
+        self.dohanyzo = dohanyzo
 
 
 class KetagyasSzoba(Szoba):
-    def __init__(self, ar, szobaszam, ferohely):
+    def __init__(self, ar, szobaszam, erkely):
         super().__init__(ar, szobaszam)
-        self.ferohely = ferohely
+        self.erkely = erkely

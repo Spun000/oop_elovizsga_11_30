@@ -7,7 +7,8 @@ class Szalloda():
         self.szobak = szobak
 
 
-# Hozz létre egy Foglalás osztályt, amelybe a Szálloda szobáinak foglalását tároljuk (elég itt, ha egy foglalás csak egy napra szól)
+# Hozz létre egy Foglalás osztályt, amelybe a Szálloda szobáinak foglalását tároljuk
+# (elég itt, ha egy foglalás csak egy napra szól)
 class Foglalas(Szalloda):
     def __init__(self, nev, szobak):
         super().__init__(nev, szobak)
