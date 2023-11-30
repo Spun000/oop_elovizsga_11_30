@@ -38,6 +38,35 @@ if __name__ == '__main__':
     booking = init_data()
     #print(booking.foglalasok)
 
-    # TODO GUI
+    while True:
+        action = input("Actions: Booking, Delete, List, Esc): ")
+        if action.lower()  == "booking":
+            room_nr = int(input("Room number: "))
+            date_input = input("Date: (yyyy-mm-dd): ")
+            date = datetime.datetime.strptime(date_input, '%Y-%m-%d').strftime("%Y%m%d")
+            price, errMsg = booking.book_room(room_nr, date)
+            if errMsg != "":
+                print(errMsg)
+            else:
+                print(f"Booking confirmed for room: {room_nr} for price: {price} Euro")
+        elif action.lower() == "delete":
+            room_nr = int(input("Room number: "))
+            date_input = input("Date: (yyyy-mm-dd): ")
+            date = datetime.datetime.strptime(date_input, '%Y-%m-%d').strftime("%Y%m%d")
+            msg = booking.delete_booking(room_nr, date)
+            if msg != "":
+                print(msg)
+            else:
+                print(f"Booking deleted for room: {room_nr}")
+        elif action.lower() == "list":
+            bookings = booking.get_booked_rooms()
+            for room, dates in bookings:
+                print(room)
+                for date in dates:
+                    print(date)
+        elif action.lower()  == "esc":
+            break
+        else:
+            print("Invalid action")
 
 
